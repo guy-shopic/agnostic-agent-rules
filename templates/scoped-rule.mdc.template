@@ -1,0 +1,24 @@
+---
+description: <WHAT_THIS_RULE_COVERS_AND_WHICH_TASKS_REQUIRE_IT>
+globs: <REPOSITORY_RELATIVE_GLOB>, <OPTIONAL_SECOND_GLOB>
+alwaysApply: false
+---
+
+# <AREA_NAME>
+
+## Required context
+
+Before <RELEVANT_CHANGE>, read `<EXISTING_DOCUMENT_PATH>`.
+
+## Constraints
+
+- <REQUIRED_BEHAVIOR_AND_THE_PROJECT_SPECIFIC_REASON>.
+- <BOUNDARY_OR_OWNERSHIP_RULE>.
+
+## Canonical example
+
+Follow `<EXISTING_FILE_PATH>` and its `<SYMBOL_NAME>` for <SPECIFIC_PATTERN>.
+
+## Validation
+
+For <CHANGE_SCOPE>, run `<COMMAND>` from `<WORKING_DIRECTORY>`.
