@@ -1,0 +1,55 @@
+---
+description: Authoring and maintaining shared agent rules, skills, and entry points. Apply when changing these instruction files.
+globs: .cursor/rules/**/*.mdc, **/SKILL.md, AGENTS.md, **/AGENTS.md, AGENTS.override.md, **/AGENTS.override.md, CLAUDE.md, **/CLAUDE.md
+alwaysApply: false
+---
+
+# Agent Rules and Skills
+
+## Ownership
+
+- Keep standing project constraints in `.cursor/rules/*.mdc`. Agent entry points
+  explain how to load those rules rather than duplicating their contents.
+- Keep task recipes in skills. A standing constraint must remain discoverable
+  without invoking a particular skill.
+- Edit the file that owns a convention rather than creating a competing rule.
+
+## Rule frontmatter
+
+Each `.mdc` file starts with `description`, `globs`, and `alwaysApply` keys.
+The description states what the rule covers and when it applies. Use
+repository-relative, unquoted, comma-separated glob patterns; leave `globs:`
+empty for rules selected by description alone.
+
+Reserve always-on rules for context required on every task. Scope other rules
+by file patterns or task descriptions. Keep each rule focused on one area and
+approximately 150 lines or fewer.
+
+## Content
+
+- Ground constraints in confirmed project facts, with paths and symbols pointing
+  to canonical examples. Separate proposed conventions from established ones.
+- Link to canonical documentation for deep context instead of copying it.
+- Describe concrete requirements and their reasons rather than vague advice.
+- Keep credentials, personal data, and machine-specific absolute paths out of
+  shared instructions. Use placeholders for sensitive examples.
+- Avoid restating general language or tool documentation unless the project
+  makes a specific choice that agents need to follow.
+
+## Maintenance
+
+When an underlying fact changes, update its owning rule in the same change.
+Check sibling rules and entry points for contradictions and broken references.
+Before recording a user correction as a permanent rule, confirm that it is
+intended to apply beyond the current task.
+
+If an existing review-agent configuration mirrors these rules, update affected
+review constraints in the same change. Preserve one canonical source; mirror
+constraints only where that review integration requires a separate format.
+
+## Skills
+
+A `SKILL.md` starts with `name` and `description` frontmatter. Its description
+states when to invoke it. The body supplies the task procedure, necessary
+references, and verifiable completion criteria, while relying on shared rules
+for standing project constraints.

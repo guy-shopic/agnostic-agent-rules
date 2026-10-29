@@ -1,0 +1,34 @@
+---
+description: Maintaining project documentation and its links. Apply when writing documentation or changing behavior described by existing docs.
+globs:
+alwaysApply: false
+---
+
+# Documentation
+
+## Placement and ownership
+
+- Inspect the existing documentation structure before choosing a location.
+  Extend the canonical document rather than adding a competing explanation.
+- Keep READMEs as entry points that orient readers and link to detailed guides.
+  Keep narrowly scoped operational notes near the code they explain when that
+  matches the project's established structure.
+- Add new documents to the existing index or relevant entry point so readers
+  can discover them. Update an existing feature registry when the change
+  affects what it inventories.
+
+## Content and links
+
+- Use relative links for documentation within the repository.
+- Reference actual paths and symbols instead of copying implementations likely
+  to change. Use the project's established domain terminology.
+- Distinguish confirmed behavior from proposals and unverified runtime claims.
+- Use placeholders in examples that would otherwise reveal credentials,
+  connection strings, or private customer data.
+
+## Maintenance
+
+When behavior changes, update affected documentation in the same change.
+Before finishing, verify that local links resolve and instructions match the
+actual project. Remove obsolete statements instead of leaving contradictory
+versions for readers to reconcile.

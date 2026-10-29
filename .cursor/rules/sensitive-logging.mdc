@@ -1,0 +1,31 @@
+---
+description: Preventing sensitive data from entering logs. Apply when adding or changing logging, telemetry payloads, or diagnostic output.
+globs:
+alwaysApply: false
+---
+
+# Sensitive Data in Logs
+
+## Choose safe metadata at the call site
+
+Use explicit, minimal metadata such as counts, durations, status codes, and
+booleans. Follow the project's existing logging framework and event structure.
+
+Inspect every field passed to a log or telemetry call. Do not assume an object
+is safe because it is a request, response, configuration, or error object.
+Avoid dumping whole payloads when they may contain sensitive fields.
+
+## Exclude sensitive values
+
+Keep credentials, authentication headers, access tokens, signing keys, passwords,
+and private personal identifiers out of logs. Signed URLs and their query
+strings can contain credentials and must not be logged in full.
+
+This applies equally to structured fields, free-text messages, exception text,
+console output, and debug statements. Check error paths as well as success paths.
+Use the project's data classification to decide whether an identifier is safe;
+do not assume every operational identifier is public.
+
+Existing redaction is defense in depth, not a reason to pass unnecessary
+sensitive data to the logger. Check the actual logging pipeline before claiming
+that it sanitizes a value.

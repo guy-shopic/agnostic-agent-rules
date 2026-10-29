@@ -1,0 +1,35 @@
+---
+description: Changing dependencies, tool configuration, hooks, or scripts while respecting existing infrastructure. Apply when modifying those project facilities.
+globs:
+alwaysApply: false
+---
+
+# Tooling and Dependencies
+
+## Dependencies
+
+Before adding a package, inspect the existing stack for the capability. Explain
+and resolve an architectural choice before introducing an alternative to an
+established framework, package manager, or tool.
+
+Change dependency declarations through the project's existing package manager.
+Regenerate lockfiles with that tool rather than editing resolved versions by
+hand. Keep related manifest and lockfile changes together. Preserve private
+package-source configuration and keep credentials out of committed files.
+
+## Validation configuration
+
+Use the existing compiler, formatter, linter, and test configuration. Fix code
+instead of disabling checks to hide a specific failure. Any necessary exception
+should be narrow, justified, and consistent with project policy.
+
+Inspect current hooks and CI before changing them. Preserve required checks;
+do not bypass hooks as a workaround. Place checks according to the project's
+existing workflow instead of assuming every project needs the same hook setup.
+
+## Scripts and environments
+
+Match the established scripting language, file placement, and runtime setup.
+Resolve required paths reliably instead of depending on an undocumented working
+directory. Read secrets and deployment values through the project's existing
+configuration mechanism; report missing required inputs clearly.

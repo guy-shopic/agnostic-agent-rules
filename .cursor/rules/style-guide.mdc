@@ -1,0 +1,31 @@
+---
+description: Preserving code consistency and keeping changes reviewable. Apply when editing source code or evaluating competing style conventions.
+globs:
+alwaysApply: false
+---
+
+# Code Consistency
+
+## Choose the applicable convention
+
+1. Follow explicit project rules and the configured language/runtime constraints.
+2. Follow a documented modernization direction when the project is migrating.
+3. Otherwise, match the established style of the module being edited.
+
+Use the project's actual formatter and linter configuration. Avoid imposing a
+new naming, import, quoting, typing, or file-layout preference simply because
+it is common in another project.
+
+## Keep edits focused
+
+- Limit formatting changes to the affected code. Keep unrelated cleanup out of
+  the feature or fix so its behavior is straightforward to review.
+- Preserve deliberate conventions in vendored or generated code; use the
+  existing update mechanism when one is provided.
+- Keep comments for non-obvious logic, constraints, or reasons. Avoid comments
+  and documentation blocks that merely narrate the implementation.
+- Choose asynchronous control flow for clarity and keep it consistent within
+  one operation.
+
+Run the applicable project checks. Fix the cause of a finding rather than
+weakening validation merely to make the change pass.
